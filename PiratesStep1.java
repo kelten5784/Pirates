@@ -40,11 +40,65 @@ public class PiratesStep1 {
 
 		// The panel that will hold the components in the frame.
 		JPanel contentPane = new JPanel ();
-
-		// TODO: Add the components to the view
+		contentPane.setLayout(new BorderLayout());
+		contentPane.setPreferredSize(new Dimension (950, 400));
+		
+		
+		JPanel rightPanel = new JPanel ();
+		contentPane.setLayout(new BorderLayout());
+		
+		contentPane.add(rightPanel, BorderLayout.EAST);
 		
 
-		// Add the panel to the frame
+		// TODO: Add the components to the view
+		JLabel scoreLabel = new JLabel ("Score");
+		rightPanel.add(scoreLabel);
+		scoreLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+		
+		
+		JLabel scoreNumberLabel =new JLabel ("0");
+		rightPanel.add(scoreNumberLabel);
+		rightPanel.setLayout(new BoxLayout(rightPanel, BoxLayout.PAGE_AXIS));
+		
+		JLabel actionsTitleLabel = new JLabel ("Actions");
+		rightPanel.add(actionsTitleLabel);
+		actionsTitleLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+	
+		JButton newGameButton = new JButton ("New Game");
+		rightPanel.add(newGameButton);
+		newGameButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+		
+		
+		JButton QuitButton = new JButton ("Quit");
+		rightPanel.add(QuitButton);
+		QuitButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+		
+		
+		
+		JButton Music = new JButton ("Music");
+		rightPanel.add(Music);
+		Music.setAlignmentX(Component.CENTER_ALIGNMENT);
+		
+		JLayeredPane GamePanel = new JLayeredPane();
+		contentPane.add(GamePanel);
+		
+		JLabel map = new JLabel(new ImageIcon ("resources/world-map-animals.jpg"));
+		map.setSize(775,400);
+		contentPane.add(map);
+		
+		JLabel shipimage = createScaledImage("resources/pirate-ship.png",40,40);
+		shipimage.setSize(40,40);
+		
+		//put the ship at a random loction
+		Random randomGenertor = new Random();
+		int pirateX = randomGenertor.nextInt(735);
+		int pirateY = randomGenertor.nextInt(360);
+		shipimage.setLocation(pirateX, pirateY);
+		
+		GamePanel.add(shipimage);
+		Integer.valueOf(100);
+		
+		
 		frame.setContentPane(contentPane);
 
 		//size the window.
